@@ -14,10 +14,12 @@
       "contact_details": {
         "phone": "050-1234567",
         "email": "yosi.koen@example.com"
+        
       },
       "isActive": true,
       "TAG": "Staff",
-      "status": "Active"
+      "status": "Active",
+     "preferred_language": "Español"
     },
     {
       "id": 2,
@@ -36,7 +38,8 @@
       },
       "isActive": false,
       "TAG": "Associate",
-      "status": "Suspended"
+      "status": "Suspended",
+       "preferred_language": "Español"
     },
     {
       "id": 3,
@@ -55,7 +58,8 @@
       },
       "isActive": true,
       "TAG": "Vendor",
-      "status": "Active"
+      "status": "Active",
+       "preferred_language": "Español"
     },
     {
       "id": 4,
@@ -74,7 +78,8 @@
       },
       "isActive": false,
       "TAG": "Staff",
-      "status": "Suspended"
+      "status": "Suspended",
+       "preferred_language": "Español"
     },
     {
       "id": 5,
@@ -93,7 +98,8 @@
       },
       "isActive": true,
       "TAG": "Vendor",
-      "status": "Active"
+      "status": "Active",
+       "preferred_language": "Español"
     },
     {
       "id": 6,
@@ -112,7 +118,8 @@
       },
       "isActive": false,
       "TAG": "Affiliate",
-      "status": "Suspended"
+      "status": "Suspended",
+       "preferred_language": "Español"
     },
     {
       "id": 7,
@@ -131,7 +138,8 @@
       },
       "isActive": true,
       "TAG": "Staff",
-      "status": "Active"
+      "status": "Active",
+       "preferred_language": "Español"
     },
     {
       "id": 8,
@@ -150,7 +158,8 @@
       },
       "isActive": false,
       "TAG": "Customer",
-      "status": "Suspended"
+      "status": "Suspended",
+       "preferred_language": "Español"
     },
     {
       "id": 9,
@@ -169,7 +178,8 @@
       },
       "isActive": true,
       "TAG": "Affiliate",
-      "status": "Active"
+      "status": "Active",
+       "preferred_language": "Español"
     },
     {
       "id": 10,
@@ -188,7 +198,8 @@
       },
       "isActive": false,
       "TAG": "Customer",
-      "status": "Suspended"
+      "status": "Suspended",
+       "preferred_language": "Español"
     }
   ]
 }
