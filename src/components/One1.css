@@ -1,0 +1,199 @@
+#frame-72 {
+    /* Child objects in a smart layout frame */
+    position: static;
+    left: 7px;
+    top: 6px;
+    width: 740px;
+    height: 24px;
+    /* Smart layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 11px;
+    z-index: 0;
+
+}
+
+#frame-69 {
+    /* Child objects in a smart layout frame */
+    position: static;
+    left: 567px;
+    top: 1.5px;
+    width: 173px;
+    height: 21px;
+    /* Smart layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 60px;
+    z-index: 5;
+}
+
+img {
+    position: static;
+    left: 116px;
+    top: 0px;
+    width: 21px;
+    height: 21px;
+    z-index: 1;
+}
+
+#star {
+    /* Child objects in a smart layout frame */
+    position: static;
+    left: 0.5px;
+    top: -1.5px;
+    width: 19px;
+    height: 19px;
+    z-index: 0;
+    border-radius: 0.6px;
+    opacity: 1;
+    background: #7691AF;
+    box-sizing: border-box;
+    border: 0.6px solid #1C3959;
+}
+
+#eye {
+    /* Child objects in a smart layout frame */
+    position: static;
+    left: 116px;
+    top: 0px;
+    width: 21px;
+    height: 21px;
+    z-index: 1;
+}
+
+#div-stars {
+    /* Child objects in a smart layout frame */
+    position: static;
+    left: 36px;
+    top: 2.5px;
+    width: 20px;
+    height: 16px;
+    /* Smart layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    z-index: 0;
+}
+
+#frame-68 {
+    /* Child objects in a smart layout frame */
+    position: static;
+    left: 369px;
+    top: 3px;
+    width: 187px;
+    height: 18px;
+    /* Smart layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 15px;
+    z-index: 4;
+}
+
+#frame-67 {
+    /* Child objects in a smart layout frame */
+    position: static;
+    left: 26px;
+    top: 0px;
+    width: 135px;
+    height: 18px;
+    /* Smart layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    z-index: 0;
+}
+
+#set4 {
+    /* Child objects in a smart layout frame */
+    position: static;
+    left: 30.5px;
+    top: 0px;
+    width: 18px;
+    height: 18px;
+    z-index: 0;
+}
+
+#set3 {
+    /* Child objects in a smart layout frame */
+    position: static;
+    left: 58.5px;
+    top: 0px;
+    width: 18px;
+    height: 18px;
+    z-index: 1;
+}
+
+#set2 {
+    /* Child objects in a smart layout frame */
+    position: static;
+    left: 86.5px;
+    top: 0px;
+    width: 18px;
+    height: 18px;
+    z-index: 2;
+}
+
+#frame-159 {
+    /* Child objects in a smart layout frame */
+    position: static;
+    left: 275px;
+    top: 1px;
+    width: 83px;
+    height: 22px;
+    /* Smart layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 11px;
+    z-index: 3;
+}
+
+#Manager {
+    /* Child objects in a smart layout frame */
+    position: static;
+    left: 0px;
+    top: 0px;
+    width: 78px;
+    height: 22px;
+    z-index: 0;
+    /* Paragraph small light -14 Lato */
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    color: #193451;
+}
+#contacts-type{
+    /* Child objects in a smart layout frame */
+position: static;
+left: 0px;
+top: 498px;
+width: 747px;
+height: 36px;
+/* Smart layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 7px;
+gap: 11px;
+z-index: 10;
+border-radius: 4px;
+opacity: 1;
+background: #FFFFFF;
+}

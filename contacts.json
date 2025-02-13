@@ -1,0 +1,154 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "image": "<img src='https://example.com/images/yosi.jpg' alt='Yosi Cohen'>",
+      "first_name": "Yosi",
+      "last_name": "Cohen",
+      "title": "Project Manager",
+      "contact_type": "Business",
+      "contact_details": {
+        "phone": "050-1234567",
+        "email": "yosi.koen@example.com"
+      },
+      "isActive": true,
+      "TAG": "Staff",
+      "status": "Active"
+    },
+    {
+      "id": 2,
+      "image": "<img src='https://example.com/images/miri.jpg' alt='Miri Levi'>",
+      "first_name": "Miri",
+      "last_name": "Levi",
+      "title": "Engineer",
+      "contact_type": "Personal",
+      "contact_details": {
+        "phone": "052-7654321",
+        "email": "miriam.levi@example.com"
+      },
+      "isActive": false,
+      "TAG": "Associate",
+      "status": "Suspended"
+    },
+    {
+      "id": 3,
+      "image": "<img src='https://example.com/images/david.jpg' alt='David Friedman'>",
+      "first_name": "David",
+      "last_name": "Friedman",
+      "title": "CEO",
+      "contact_type": "Business",
+      "contact_details": {
+        "phone": "053-9876543",
+        "email": "david.freidman@example.com"
+      },
+      "isActive": true,
+      "TAG": "Vendor",
+      "status": "Active"
+    },
+    {
+      "id": 4,
+      "image": "<img src='https://example.com/images/sara.jpg' alt='Sara Barak'>",
+      "first_name": "Sara",
+      "last_name": "Barak",
+      "title": "HR Manager",
+      "contact_type": "Business",
+      "contact_details": {
+        "phone": "054-1234567",
+        "email": "sara.barak@example.com"
+      },
+      "isActive": false,
+      "TAG": "Staff",
+      "status": "Suspended"
+    },
+    {
+      "id": 5,
+      "image": "<img src='https://example.com/images/avi.jpg' alt='Avi Goldstein'>",
+      "first_name": "Avi",
+      "last_name": "Goldstein",
+      "title": "Marketing Manager",
+      "contact_type": "Business",
+      "contact_details": {
+        "phone": "055-2345678",
+        "email": "avi.goldstein@example.com"
+      },
+      "isActive": true,
+      "TAG": "Vendor",
+      "status": "Active"
+    },
+    {
+      "id": 6,
+      "image": "<img src='https://example.com/images/noa.jpg' alt='Noa Rapaport'>",
+      "first_name": "Noa",
+      "last_name": "Rapaport",
+      "title": "Analyst",
+      "contact_type": "Personal",
+      "contact_details": {
+        "phone": "056-3456789",
+        "email": "noa.rapaport@example.com"
+      },
+      "isActive": false,
+      "TAG": "Affiliate",
+      "status": "Suspended"
+    },
+    {
+      "id": 7,
+      "image": "<img src='https://example.com/images/uri.jpg' alt='Uri Moshkovitz'>",
+      "first_name": "Uri",
+      "last_name": "Moshkovitz",
+      "title": "Software Developer",
+      "contact_type": "Business",
+      "contact_details": {
+        "phone": "057-4567890",
+        "email": "uri.moshkovitz@example.com"
+      },
+      "isActive": true,
+      "TAG": "Staff",
+      "status": "Active"
+    },
+    {
+      "id": 8,
+      "image": "<img src='https://example.com/images/rut.jpg' alt='Rut Harel'>",
+      "first_name": "Rut",
+      "last_name": "Harel",
+      "title": "Product Manager",
+      "contact_type": "Business",
+      "contact_details": {
+        "phone": "058-5678901",
+        "email": "rut.harel@example.com"
+      },
+      "isActive": false,
+      "TAG": "Customer",
+      "status": "Suspended"
+    },
+    {
+      "id": 9,
+      "image": "<img src='https://example.com/images/shlomit.jpg' alt='Shlomit Adib'>",
+      "first_name": "Shlomit",
+      "last_name": "Adib",
+      "title": "Project Manager",
+      "contact_type": "Personal",
+      "contact_details": {
+        "phone": "059-6789012",
+        "email": "shlomit.adiv@example.com"
+      },
+      "isActive": true,
+      "TAG": "Affiliate",
+      "status": "Active"
+    },
+    {
+      "id": 10,
+      "image": "<img src='https://example.com/images/rafael.jpg' alt='Rafael Golan'>",
+      "first_name": "Rafael",
+      "last_name": "Golan",
+      "title": "Legal Advisor",
+      "contact_type": "Business",
+      "contact_details": {
+        "phone": "050-7890123",
+        "email": "rafael.golan@example.com"
+      },
+      "isActive": false,
+      "TAG": "Customer",
+      "status": "Suspended"
+    }
+  ]
+}

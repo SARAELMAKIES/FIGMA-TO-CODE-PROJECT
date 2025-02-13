@@ -1,0 +1,78 @@
+/* One.css */
+
+/* רקע כללי של העמוד */
+body {
+  background-color: #f5f5f5; /* אפור בהיר */
+  font-family: Lato;
+
+}
+
+/* עיצוב כללי של הטבלה */
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: white; /* רקע לבן לטבלה */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* צל עדין לטבלה */
+}
+
+/* עיצוב שורות */
+tr {
+  border-bottom: 1px solid #333; /* קו מפריד בין שורות */
+}
+
+/* עיצוב תאים */
+th, td {
+  padding: 10px; /* ריווח פנימי בתאים */
+  text-align: left; /* יישור טקסט לשמאל */
+}
+
+/* עיצוב כותרות */
+th {
+  background-color: #f0f0f0; /* רקע אפור בהיר לכותרות */
+}
+
+/* עיצוב אייקונים */
+.contact-icon, .star-icon, .eye-icon, .avatar-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 5px; /* ריווח בין אייקונים */
+  vertical-align: middle; /* יישור אנכי של אייקונים */
+}
+
+.avatar-icon {
+  width: 40px; /* גודל אווטר */
+  height: 40px; /* גודל אווטר */
+  margin-right: 10px; /* מרווח אווטר */
+}
+
+/* עיצוב פאנל צדדי */
+.side-panel {
+  width: 300px; /* רוחב הפאנל */
+  padding: 20px;
+  border: 1px solid #ccc;
+  position: absolute; /* מיקום אבסולוטי */
+  top: 50%; /* מרכוז אנכי */
+  left: 50%; /* מרכוז אופקי */
+  transform: translate(-50%, -50%); /* תיקון מרכוז */
+  background-color: white; /* רקע לבן */
+}
+
+/* עיצוב חיפוש ופילטר */
+.search-filter-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.search-filter-container input {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+/* רספונסיביות - אם רוצים להתאים את הטבלה למסכים קטנים */
+@media (max-width: 768px) {
+  table {
+    width: 100%;
+  }
+}
