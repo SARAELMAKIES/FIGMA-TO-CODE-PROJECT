@@ -1,12 +1,14 @@
+
 import React, { useState } from "react";
 import { Popover, IconButton, Box, Typography, MenuItem, Select, Switch, Button } from "@mui/material";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import CloseIcon from "@mui/icons-material/Close";
-import { useDispatch } from "react-redux"; // אם אתה משתמש ב-Redux
+import { useDispatch, useSelector } from "react-redux"; // הוספתי את useSelector לשלוף את contacts מ-Redux
 import { updateFilteredContacts } from "../app/userSlice"; // הפונקציה שתעדכן את המידע ב-Redux
 
-const CustomFilterMenu = ({ contacts }) => {
-  const dispatch = useDispatch(); // חיבור ל-Redux
+const CustomFilterMenu = ({ setFilteredUsers }) => {
+  const dispatch = useDispatch();
+  const contacts = useSelector((state) => state.user.arr); // שליפת הקונטקטים מה-Redux
   const [anchorEl, setAnchorEl] = useState(null);
   const [filters, setFilters] = useState({
     contactType: "All",
@@ -24,24 +26,24 @@ const CustomFilterMenu = ({ contacts }) => {
   };
 
   const handleSave = () => {
-    const filteredContacts = contacts.filter(contact => {
-      // סינון לפי contactType
+    if (!contacts || contacts.length === 0) {
+      console.error("No contacts data available for filtering");
+      return;
+    }
+
+    const filteredContacts = contacts.filter((contact) => {
+      // מבצע סינון לפי כל התנאים יחד
       const matchesContactType = filters.contactType === "All" || contact.contact_type === filters.contactType;
-      
-      // סינון לפי TAG
       const matchesTag = filters.tags === "All" || contact.TAG === filters.tags;
-      
-      // סינון לפי status (אם active בחרו)
       const matchesStatus = filters.active === "All" || (filters.active === "Yes" ? contact.isActive : !contact.isActive);
-      
-      // סינון לפי Main Contact (אם יש צורך)
-      const matchesMainContact = !filters.mainContact || contact.isActive; // מניח ש mainContact קשור ל-active
+      const matchesMainContact = !filters.mainContact || contact.isActive; // אם mainContact True, סינון רק על פעילים
 
       return matchesContactType && matchesTag && matchesStatus && matchesMainContact;
     });
 
-    // עדכון המידע ב-Redux או שליחת המידע המסונן
-    dispatch(updateFilteredContacts(filteredContacts)); // עדכון ב-RRedux
+    console.log("Filtered Contacts:", filteredContacts); // בודק את הקונטקטים המסוננים
+    setFilteredUsers(filteredContacts)
+    // dispatch(updateFilteredContacts(filteredContacts)); // עדכון המידע ב-Redux
     handleClose();
   };
 
@@ -52,6 +54,7 @@ const CustomFilterMenu = ({ contacts }) => {
       active: "All",
       mainContact: false,
     });
+    setFilteredUsers(contacts)
   };
 
   return (
@@ -74,7 +77,7 @@ const CustomFilterMenu = ({ contacts }) => {
             </IconButton>
           </Box>
 
-          <Box display="flex" justifyContent="flex-start" mt={1}> {/* Align to right */}
+          <Box display="flex" justifyContent="flex-start" mt={1}>
             <Button
               onClick={handleClearAll}
               variant="contained"
