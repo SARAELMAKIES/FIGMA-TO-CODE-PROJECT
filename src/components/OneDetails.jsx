@@ -8,10 +8,10 @@ import { updateCurrentContact } from "../app/userSlice";
 export const OneDetails = () => {
     const dispatch = useDispatch();
     const current = useSelector((state) => state.user.currentContact);
-    // const [isEditing, setIsEditing] = useState(false);
+    const [isEditing, setIsEditing] = useState(false);
     const [editedContact, setEditedContact] = useState(current || {});
 
-    if (!current) return <Typography>Choose a contact to display</Typography>;
+    if (!current) return <Typography>choose contact to display</Typography>;
 
     const handleEditClick = () => {
         setEditedContact(current);
@@ -24,14 +24,23 @@ export const OneDetails = () => {
     };
 
     const handleChange = (e) => {
-        setEditedContact({ ...editedContact, [e.target.name]: e.target.value });
+        const { name, value } = e.target;
+        setEditedContact((prev) => {
+            const keys = name.split(".");
+            if (keys.length === 2) {
+                return {
+                    ...prev,
+                    [keys[0]]: { ...prev[keys[0]], [keys[1]]: value }
+                };
+            }
+            return { ...prev, [name]: value };
+        });
     };
 
     return (
         <Card sx={{ maxWidth: 400, p: 2, borderRadius: 3, boxShadow: 3, position: "relative" }}>
             <IconButton size="small" sx={{ position: "absolute", top: 10, right: 10 }} onClick={handleEditClick}>
                 <Edit />
-                
             </IconButton>
             <CardContent>
                 <Grid container spacing={2} alignItems="center">
@@ -39,7 +48,11 @@ export const OneDetails = () => {
                         <Avatar src={current?.image} sx={{ width: 70, height: 70 }} />
                     </Grid>
                     <Grid item xs={9}>
-                        <Typography variant="h6">{current?.first_name} {current?.last_name}</Typography>
+                        {isEditing ? (
+                            <TextField fullWidth name="first_name" value={editedContact.first_name || ''} onChange={handleChange} />
+                        ) : (
+                            <Typography variant="h6">{current?.first_name} {current?.last_name}</Typography>
+                        )}
                         <Typography variant="body2" color="textSecondary">{current?.title}</Typography>
                     </Grid>
                 </Grid>
@@ -61,20 +74,18 @@ export const OneDetails = () => {
                 <Grid container alignItems="center" spacing={1}>
                     <Grid item><Phone fontSize="small" /></Grid>
                     <Grid item>
-                        <Typography variant="body2" color="primary">{current?.contact_details.phone}</Typography>
-                    </Grid>
-                    <Grid item>
-                        <IconButton size="small"><Phone /></IconButton>
+                        {isEditing ? (
+                            <TextField name="contact_details.phone" value={editedContact.contact_details?.phone || ''} onChange={handleChange} />
+                        ) : (
+                            <Typography variant="body2" color="primary">{current?.contact_details?.phone}</Typography>
+                        )}
                     </Grid>
                 </Grid>
 
                 <Grid container alignItems="center" spacing={1} mt={1}>
                     <Grid item><Email fontSize="small" /></Grid>
                     <Grid item>
-                        <Typography variant="body2" color="primary">{current?.contact_details.email}</Typography>
-                    </Grid>
-                    <Grid item>
-                        <IconButton size="small"><Email /></IconButton>
+                        <Typography variant="body2" color="primary">{current?.contact_details?.email}</Typography>
                     </Grid>
                 </Grid>
 
@@ -102,10 +113,13 @@ export const OneDetails = () => {
                         )}
                     </Grid>
                 </Grid>
+
+                {isEditing && (
+                    <Button startIcon={<Save />} variant="contained" color="primary" fullWidth onClick={handleSaveClick} sx={{ mt: 2 }}>
+                        Save
+                    </Button>
+                )}
             </CardContent>
         </Card>
     );
 };
-
-
-
