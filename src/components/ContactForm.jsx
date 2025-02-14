@@ -1,4 +1,5 @@
 
+
 import { useForm, useFieldArray } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { addArrUserToState, addUserToArr } from "../app/userSlice";
@@ -13,9 +14,11 @@ const languages = [
   { code: "es", label: "Español", flag: "https://flagcdn.com/w40/es.png" },
   { code: "de", label: "Deutsch", flag: "https://flagcdn.com/w40/de.png" }
 ];
-export default function ContactForm() {
-  let dispatch = useDispatch();
-  const { register, control, handleSubmit, reset, watch, formState: { errors } } = useForm({
+ export default function ContactForm({ isEditing, editedContact }) {
+//   let dispatch = useDispatch();
+//   const { register, control, handleSubmit, reset, watch, formState: { errors } } = useForm({export default function ContactForm({ isEditing, editedContact }) {
+    let dispatch = useDispatch();
+    const { register, control, handleSubmit, reset, watch, formState: { errors } } = useForm({
     defaultValues: {
       first_name: "",
       last_name: "",
@@ -54,10 +57,20 @@ export default function ContactForm() {
     { value: "HOME", label: "Home" },
   ];
 
+  // אתחול מחדש כאשר `editedContact` משתנה
+  React.useEffect(() => {
+    if (editedContact) {
+      reset(editedContact);
+    }
+  }, [editedContact, reset]);
+
+  
   const onSubmit = (data) => {
     //   data.להוסיף פה שדוץת שלא נדרשים בטופס וכן צריך להציג אותם
     data.contact_details.phone = ""
     data.contact_details.email = ""
+    dispatch(addUserToArr(data));
+    reset();
 
     dispatch(addUserToArr(data));  // הוספת הקונטקט החדש
     console.log(data);
@@ -100,6 +113,7 @@ export default function ContactForm() {
           fullWidth
           error={!!errors.first_name}
           helperText={errors.first_name?.message}
+          disabled={isEditing}
         />
         <TextField
           {...register("last_name", {
@@ -110,6 +124,7 @@ export default function ContactForm() {
           fullWidth
           error={!!errors.last_name}
           helperText={errors.last_name?.message}
+          disabled={isEditing}
         />
       </Box>
 
@@ -120,6 +135,7 @@ export default function ContactForm() {
         fullWidth
         error={!!errors.role}
         helperText={errors.role?.message}
+      
       />
 
       {/* סוג קשר */}
@@ -129,6 +145,7 @@ export default function ContactForm() {
         fullWidth
         error={!!errors.contact_type}
         helperText={errors.contact_type?.message}
+        disabled={isEditing}
       />
 
       <InputLabel>Language</InputLabel>
@@ -195,6 +212,8 @@ export default function ContactForm() {
                   fullWidth
                   error={!!errors.contact_details?.email?.[index]?.value}
                   helperText={errors.contact_details?.email?.[index]?.value?.message}
+                
+                  
                 />
                 <FormControl fullWidth>
                   <InputLabel>Contact Type</InputLabel>
@@ -270,4 +289,3 @@ export default function ContactForm() {
     </form>
   );
 }
-
