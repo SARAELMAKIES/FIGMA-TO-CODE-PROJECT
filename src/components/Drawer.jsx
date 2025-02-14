@@ -4,21 +4,16 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import { Stack, Avatar, IconButton } from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close'; // אייקון סגירה
+import CloseIcon from '@mui/icons-material/Close';
 import ContactForm from './ContactForm';
 
-export default function FormAdd() {
-    const [state, setState] = React.useState({
-        right: false,
-    });
+export default function FormAdd({ selectedContact, setSelectedContact }) {
+    const [drawerOpen, setDrawerOpen] = React.useState(false);
     const [avatar, setAvatar] = React.useState("../assets/Avatar.svg");
 
-    const toggleDrawer = (anchor, open) => (event) => {
-        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-            return;
-        }
-
-        setState({ ...state, [anchor]: open });
+    const toggleDrawer = (open) => {
+        setDrawerOpen(open);
+        if (!open) setSelectedContact(null); // Reset contact on close
     };
 
     const handleImageUpload = (event) => {
@@ -34,67 +29,51 @@ export default function FormAdd() {
 
     return (
         <div>
-            {['right'].map((anchor) => (
-                <React.Fragment key={anchor}>
-                    {/* כפתור New Contact בצד ימין למעלה */}
-                    <Box sx={{
-                        position: 'fixed',
-                        top: 20,
-                        right: 20,
-                        zIndex: 1000
-                    }}>
-                        <Button
-                            onClick={toggleDrawer(anchor, true)}
-                            variant="contained"
-                            color="primary" // צבע כחול
-                            sx={{
-                                padding: '8px 16px',
-                                fontSize: '16px',
-                                backgroundColor: '#1976d2', // כחול
-                                '&:hover': { backgroundColor: '#1565c0' } // צבע כחול כהה לה-hover
-                            }}
-                        >
-                            New Contact
-                        </Button>
-                    </Box>
+            <Box sx={{ position: 'fixed', top: 20, right: 20, zIndex: 1000 }}>
+                <Button
+                    onClick={() => toggleDrawer(true)}
+                    variant="contained"
+                    color="primary"
+                    sx={{ padding: '8px 16px', fontSize: '16px' }}
+                >
+                    New Contact
+                </Button>
+            </Box>
 
-                    {/* Drawer בצד ימין */}
-                    <Drawer PaperProps={{ sx: { width: '399px' } }}
-                        anchor={anchor}
-                        open={state[anchor]}
-                        onClose={toggleDrawer(anchor, false)}>
+            <Drawer PaperProps={{ sx: { width: '399px' } }}
+                anchor="right"
+                open={drawerOpen}
+                onClose={() => toggleDrawer(false)}>
 
-                        {/* כפתור X לסגירת ה-Drawer */}
-                        <IconButton
-                            onClick={toggleDrawer(anchor, false)}
-                            sx={{ position: 'absolute', top: 10, right: 10 }}
-                        >
-                            <CloseIcon />
-                        </IconButton>
+                <IconButton
+                    onClick={() => toggleDrawer(false)}
+                    sx={{ position: 'absolute', top: 10, right: 10 }}
+                >
+                    <CloseIcon />
+                </IconButton>
 
-                        {/* תמונת פרופיל עם אפשרות העלאה */}
-                        <Box sx={{ textAlign: 'center', mt: 2 }}>
-                            <input
-                                type="file"
-                                accept="image/*"
-                                id="avatar-upload"
-                                style={{ display: 'none' }}
-                                onChange={handleImageUpload}
-                            />
-                            <label htmlFor="avatar-upload">
-                                <Avatar
-                                    src={avatar}
-                                    sx={{ width: 104, height: 104, cursor: 'pointer' }}
-                                />
-                            </label>
-                        </Box>
+                <Box sx={{ textAlign: 'center', mt: 2 }}>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        id="avatar-upload"
+                        style={{ display: 'none' }}
+                        onChange={handleImageUpload}
+                    />
+                    <label htmlFor="avatar-upload">
+                        <Avatar
+                            src={avatar}
+                            sx={{ width: 104, height: 104, cursor: 'pointer' }}
+                        />
+                    </label>
+                </Box>
 
-                        {/* טופס יצירת קשר */}
-                        {/*<ContactForm isEditMode={true} /> */}
-                         <ContactForm />
-                    </Drawer>
-                </React.Fragment>
-            ))}
+                <ContactForm
+                    isEditMode={!!selectedContact}
+                    contactData={selectedContact}
+                    onClose={() => toggleDrawer(false)}
+                />
+            </Drawer>
         </div>
     );
 }
