@@ -4,12 +4,12 @@ import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import { IconButton, Avatar } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close'; // אייקון סגירה
-import { OneDetails } from './OneDetails';
+import { OneDetails } from './OneDetails.jsx';
 import { VisibilityOutlined as VisibilityIcon } from '@mui/icons-material'; // אייקונים עם Outlined
 import { useDispatch } from 'react-redux';
 import { updateCurrentContact } from '../app/userSlice.js';
 
-export default function FormAdd({ item }) {
+export default function ShowDetails({ item }) {
     const [state, setState] = React.useState({
         right: false,
     });

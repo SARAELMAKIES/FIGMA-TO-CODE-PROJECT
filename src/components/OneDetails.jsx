@@ -85,7 +85,7 @@ import { useSelector } from "react-redux";
 
 export const OneDetails = () => {
     const current = useSelector((state) => state.user.currentContact);
-    if (!current) return <Typography>בחר איש קשר להצגה</Typography>;
+    if (!current) return <Typography>choose contact to display</Typography>;
 
     return (
         <Card sx={{ maxWidth: 400, p: 2, borderRadius: 3, boxShadow: 3, position: "relative" }}>

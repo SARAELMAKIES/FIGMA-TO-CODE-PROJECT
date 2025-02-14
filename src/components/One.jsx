@@ -6,7 +6,7 @@ import Avatar from '@mui/material/Avatar';  // הוספת ה-Avatar
 import { updateCurrentContact } from '../app/userSlice.js';
 import { EmailOutlined as EmailIcon, PhoneOutlined as PhoneIcon, AccountCircleOutlined as AccountCircleIcon, VisibilityOutlined as VisibilityIcon, Star as StarIcon } from '@mui/icons-material'; // אייקונים עם Outlined
 import { useDispatch, useSelector } from 'react-redux';
-import FormAdd from './FormAdd.jsx';
+import ShowDetails from './ShowDetails.jsx';
 import "./One.css";
 const One = ({ item, onClick, onActiveChange }) => {
   const [rating, setRating] = React.useState(item.mainContactRating || 1);
@@ -56,7 +56,7 @@ const One = ({ item, onClick, onActiveChange }) => {
         />
       </td>
       <td className="actions">
-        <FormAdd item={item}></FormAdd>
+        <ShowDetails item={item}></ShowDetails>
       </td>
     </>
   );

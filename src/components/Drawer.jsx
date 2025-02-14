@@ -67,7 +67,7 @@ import { Stack, Avatar, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close'; // אייקון סגירה
 import ContactForm from './ContactForm';
 
-export default function FormAdd() {
+export default function ShowDetails() {
     const [state, setState] = React.useState({
         right: false,
     });

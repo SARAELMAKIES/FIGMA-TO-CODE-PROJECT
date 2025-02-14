@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import One from "./One";
 import { updateUserActiveStatus } from "../app/userSlice";
 import { TextField, IconButton, Box, Paper, Table, TableHead, TableRow, TableCell, TableBody } from "@mui/material";
-import FilterAltIcon from "@mui/icons-material/FilterAlt"; // אייקון פילטר חדש - מסננת רחבה למעלה וצרה למטה
 import CustomFilterMenu from './CustomFilterMenu';
 
 const List = () => {
@@ -41,13 +40,12 @@ const List = () => {
 
   return (
     <>
-      {/* שדה חיפוש עם אייקון פילטר */}
       <Box display="flex" alignItems="center" mb={2} justifyContent="flex-start" sx={{ ml: 6 }}>
         <TextField
           size="small"
           value={searchQuery}
           onChange={handleSearchChange}
-          placeholder="חפש לפי שם"
+          placeholder="search by name"
           variant="outlined"
           sx={{ width: "180px", mr: 1 }}
         />

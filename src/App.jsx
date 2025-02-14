@@ -5,10 +5,7 @@ import { useEffect } from "react";
 import List from "./components/list";
 import { useDispatch } from "react-redux";
 import { addArrUserToState } from "./app/userSlice";
-import ContactForm from "./components/ContactForm";
-import CustomFilterMenu from './components/CustomFilterMenu';
 import Drawer from './components/Drawer';
-import FormAdd from './components/FormAdd'
 
 function App() {
 
@@ -21,17 +18,11 @@ function App() {
   }, []);
 
   return (
-
-
-
     <>
-
-      {/* <CustomFilterMenu/> */}
       <List />
-      {/* <ContactForm />   */}
+
       <Drawer />
     </>
-
   );
 }
 
