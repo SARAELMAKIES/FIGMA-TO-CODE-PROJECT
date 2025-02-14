@@ -70,3 +70,48 @@ export default function ShowDetails({ item }) {
         </div>
     );
 }
+// ShowDetails.jsx
+// import * as React from "react";
+// import { Box, Drawer, Button, IconButton } from "@mui/material";
+// import CloseIcon from "@mui/icons-material/Close";
+// import { VisibilityOutlined as VisibilityIcon, Edit as EditIcon } from "@mui/icons-material";
+// import { useDispatch, useSelector } from "react-redux";
+// import { updateCurrentContact } from "../app/userSlice.js";
+// import ContactForm from "./ContactForm";
+// import OneDetails from "./OneDetails";
+
+// export default function ShowDetails({ item }) {
+//     const [state, setState] = React.useState({ right: false });
+//     const [isEditing, setIsEditing] = React.useState(false);
+//     const dispatch = useDispatch();
+
+//     const toggleDrawer = (anchor, open, editing = false) => (event) => {
+//         if (event?.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) {
+//             return;
+//         }
+//         if (open) {
+//             dispatch(updateCurrentContact(item));
+//         }
+//         setIsEditing(editing);
+//         setState({ ...state, [anchor]: open });
+//     };
+
+//     return (
+//         <div>
+//             <Button onClick={toggleDrawer("right", true, false)}>
+//                 <VisibilityIcon style={{ cursor: "pointer" }} />
+//             </Button>
+//             <Button onClick={toggleDrawer("right", true, true)}>
+//                 <EditIcon style={{ cursor: "pointer" }} />
+//             </Button>
+//             <Drawer PaperProps={{ sx: { width: "377px" } }} anchor="right" open={state.right} onClose={toggleDrawer("right", false)}>
+//                 <IconButton onClick={toggleDrawer("right", false)} sx={{ position: "absolute", top: 10, right: 10 }}>
+//                     <CloseIcon />
+//                 </IconButton>
+//                 <Box sx={{ pt: 12, pb: 4 }}>
+//                     {isEditing ? <ContactForm isEditing={isEditing} /> : <OneDetails />}
+//                 </Box>
+//             </Drawer>
+//         </div>
+//     );
+// }

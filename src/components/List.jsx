@@ -51,12 +51,6 @@ const List = () => {
         />
         <CustomFilterMenu setFilteredUsers={setFilteredUsers} />
       </Box>
-
-
-
-
-
-
       <Table>
         <TableHead>
           <TableRow>

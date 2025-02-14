@@ -1,64 +1,4 @@
-// import * as React from 'react';
-// import Box from '@mui/material/Box';
-// import Drawer from '@mui/material/Drawer';
-// import Button from '@mui/material/Button';
-// import List from '@mui/material/List';
-// import Divider from '@mui/material/Divider';
-// import ListItem from '@mui/material/ListItem';
-// import ListItemButton from '@mui/material/ListItemButton';
-// import ListItemIcon from '@mui/material/ListItemIcon';
-// import ListItemText from '@mui/material/ListItemText';
-// import InboxIcon from '@mui/icons-material/MoveToInbox';
-// import MailIcon from '@mui/icons-material/Mail';
-// import { Stack, Avatar, IconButton } from '@mui/material';
-// import CloseIcon from '@mui/icons-material/Close'; // אייקון סגירה
-// import ContactForm from './ContactForm';
 
-// export default function FormAdd() {
-//     const [state, setState] = React.useState({
-//         right: false,
-//     });
-
-//     const toggleDrawer = (anchor, open) => (event) => {
-//         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-//             return;
-//         }
-
-//         setState({ ...state, [anchor]: open });
-//     };
-
-
-
-//     return (
-//         <div>
-//             {['right'].map((anchor) => (
-//                 <React.Fragment key={anchor}>
-//                     <Button onClick={toggleDrawer(anchor, true)}>New Contact</Button>
-//                     <Drawer PaperProps={{ sx: { width: "377px" } }}
-//                         anchor={anchor}
-//                         open={state[anchor]}
-//                         onClose={toggleDrawer(anchor, false)}
-//                     >
-//                         {/* כפתור X בסגירת ה-Drawer */}
-//                         <IconButton
-//                             onClick={toggleDrawer(anchor, false)}
-//                             sx={{ position: 'absolute', top: 10, right: 10 }}
-//                         >
-//                             <CloseIcon />
-
-//                         </IconButton>
-//                         <Avatar
-//                     src="../assets/Avatar.svg"
-//                     sx={{ width: 104, height: 104 }}
-//                 />
-//                         <ContactForm />
-
-//                     </Drawer>
-//                 </React.Fragment>
-//             ))}
-//         </div>
-//     );
-// }
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -67,10 +7,11 @@ import { Stack, Avatar, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close'; // אייקון סגירה
 import ContactForm from './ContactForm';
 
-export default function ShowDetails() {
+export default function FormAdd() {
     const [state, setState] = React.useState({
         right: false,
     });
+    const [avatar, setAvatar] = React.useState("../assets/Avatar.svg");
 
     const toggleDrawer = (anchor, open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -78,6 +19,17 @@ export default function ShowDetails() {
         }
 
         setState({ ...state, [anchor]: open });
+    };
+
+    const handleImageUpload = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                setAvatar(e.target.result);
+            };
+            reader.readAsDataURL(file);
+        }
     };
 
     return (
@@ -120,11 +72,22 @@ export default function ShowDetails() {
                             <CloseIcon />
                         </IconButton>
 
-                        {/* תמונת פרופיל */}
-                        <Avatar
-                            src="../assets/Avatar.svg"
-                            sx={{ width: 104, height: 104 }}
-                        />
+                        {/* תמונת פרופיל עם אפשרות העלאה */}
+                        <Box sx={{ textAlign: 'center', mt: 2 }}>
+                            <input
+                                type="file"
+                                accept="image/*"
+                                id="avatar-upload"
+                                style={{ display: 'none' }}
+                                onChange={handleImageUpload}
+                            />
+                            <label htmlFor="avatar-upload">
+                                <Avatar
+                                    src={avatar}
+                                    sx={{ width: 104, height: 104, cursor: 'pointer' }}
+                                />
+                            </label>
+                        </Box>
 
                         {/* טופס יצירת קשר */}
                         <ContactForm />

@@ -1,8 +1,6 @@
 
 import { useEffect } from "react";
-
-
-import List from "./components/list";
+import List from './components/List';
 import { useDispatch } from "react-redux";
 import { addArrUserToState } from "./app/userSlice";
 import Drawer from './components/Drawer';
