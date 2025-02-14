@@ -276,7 +276,7 @@ const languages = [
           <h3>Mailing Address</h3>
         </AccordionSummary>
         <AccordionDetails>
-          <TextField {...register("address")} label="Address" fullWidth multiline rows={4} />
+          <TextField {...register("address")}disabled={isEditing} label="Address" fullWidth multiline rows={4} />
           <TextField {...register("message")} label="Message" fullWidth multiline rows={4} />
         </AccordionDetails>
       </Accordion>
@@ -289,3 +289,39 @@ const languages = [
     </form>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+ 
+  
+  
