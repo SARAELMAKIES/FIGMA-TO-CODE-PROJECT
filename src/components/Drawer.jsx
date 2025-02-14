@@ -90,7 +90,8 @@ export default function FormAdd() {
                         </Box>
 
                         {/* טופס יצירת קשר */}
-                        <ContactForm />
+                        {/*<ContactForm isEditMode={true} /> */}
+                         <ContactForm />
                     </Drawer>
                 </React.Fragment>
             ))}

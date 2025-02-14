@@ -1,16 +1,37 @@
 
-import { Card, CardContent, Avatar, Typography, IconButton, Divider, Grid } from "@mui/material";
-import { Email, Phone, Edit, Star, Work, LocationOn, Receipt, LocalAtm } from "@mui/icons-material";
-import { useSelector } from "react-redux";
+import { Card, CardContent, Avatar, Typography, IconButton, Divider, Grid, TextField, Button } from "@mui/material";
+import { Email, Phone, Edit, Star, Work, LocationOn, Receipt, LocalAtm, Save } from "@mui/icons-material";
+import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
+import { updateCurrentContact } from "../app/userSlice";
 
 export const OneDetails = () => {
+    const dispatch = useDispatch();
     const current = useSelector((state) => state.user.currentContact);
-    if (!current) return <Typography>choose contact to display</Typography>;
+    const [isEditing, setIsEditing] = useState(false);
+    const [editedContact, setEditedContact] = useState(current || {});
+
+    if (!current) return <Typography>Choose a contact to display</Typography>;
+
+    const handleEditClick = () => {
+        setEditedContact(current);
+        setIsEditing(true);
+    };
+
+    const handleSaveClick = () => {
+        dispatch(updateCurrentContact(editedContact));
+        setIsEditing(false);
+    };
+
+    const handleChange = (e) => {
+        setEditedContact({ ...editedContact, [e.target.name]: e.target.value });
+    };
 
     return (
         <Card sx={{ maxWidth: 400, p: 2, borderRadius: 3, boxShadow: 3, position: "relative" }}>
-            <IconButton size="small" sx={{ position: "absolute", top: 10, right: 10 }}>
+            <IconButton size="small" sx={{ position: "absolute", top: 10, right: 10 }} onClick={handleEditClick}>
                 <Edit />
+                
             </IconButton>
             <CardContent>
                 <Grid container spacing={2} alignItems="center">
@@ -85,3 +106,6 @@ export const OneDetails = () => {
         </Card>
     );
 };
+
+
+
