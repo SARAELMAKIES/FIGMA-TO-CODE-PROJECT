@@ -8,7 +8,7 @@ import { updateCurrentContact } from "../app/userSlice";
 export const OneDetails = () => {
     const dispatch = useDispatch();
     const current = useSelector((state) => state.user.currentContact);
-    const [isEditing, setIsEditing] = useState(false);
+    // const [isEditing, setIsEditing] = useState(false);
     const [editedContact, setEditedContact] = useState(current || {});
 
     if (!current) return <Typography>Choose a contact to display</Typography>;
